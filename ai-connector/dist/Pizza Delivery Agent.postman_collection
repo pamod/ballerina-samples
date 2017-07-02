@@ -1,0 +1,71 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Pizza Delivery Agent",
+		"_postman_id": "006797bf-2355-f1e5-5cb1-d92ca983b45f",
+		"description": "Calls the Pizza Delivery Agent APIs in API.AI in order to process the delivery request",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Order Pizza",
+			"request": {
+				"url": {
+					"raw": "https://api.api.ai/api/query?v=20150910",
+					"protocol": "https",
+					"host": [
+						"api",
+						"api",
+						"ai"
+					],
+					"path": [
+						"api",
+						"query"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": "20150910",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 16ea21efc5de41b4a106c4ffe303bcac",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": [\n        \"I would like to have a small pizza which will have prawns\"\n    ],\n    \"timezone\": \"GMT\",\n    \"lang\": \"en\",\n    \"sessionId\":1234567860\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Process Pizza Order",
+			"request": {
+				"url": "http://localhost:9090/pizza/order",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"details\": \"I would like to have a small pizza which will have prawns\",\n    \"session\":38484494\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
